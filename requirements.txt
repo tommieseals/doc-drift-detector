@@ -1,0 +1,7 @@
+# Doc Drift Detector Dependencies
+gitpython>=3.1.0
+markdown>=3.4.0
+pyyaml>=6.0
+click>=8.0.0
+rich>=13.0.0
+watchdog>=3.0.0
