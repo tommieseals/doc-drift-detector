@@ -244,3 +244,4 @@ Contributions welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
 ---
 
 **Made with ❤️ for developers who care about documentation**
+
