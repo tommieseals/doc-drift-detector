@@ -1,0 +1,32 @@
+{
+  "exclude": [
+    "node_modules/",
+    "__pycache__/",
+    ".git/",
+    "venv/",
+    ".venv/",
+    "dist/",
+    "build/",
+    "*.test.py",
+    "test_*.py"
+  ],
+  "ignore_patterns": [
+    "__init__",
+    "__str__",
+    "__repr__",
+    "_*"
+  ],
+  "require_docstrings": true,
+  "check_parameters": true,
+  "check_return_types": true,
+  "severity_overrides": {
+    "UNDOCUMENTED_FUNCTION": "warning",
+    "MISSING_FROM_CODE": "critical",
+    "PARAMETER_MISMATCH": "warning"
+  },
+  "semantic_matching": {
+    "enabled": false,
+    "provider": "simple",
+    "threshold": 0.7
+  }
+}

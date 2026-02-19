@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doc-drift-detector"
+version = "0.1.0"
+description = "Detect when code and documentation drift out of sync"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Tommie Seals", email = "tommieseals@github.com"}
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Documentation",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Quality Assurance",
+]
+keywords = ["documentation", "drift", "sync", "code-quality", "ci-cd"]
+dependencies = []
+
+[project.optional-dependencies]
+embeddings = [
+    "sentence-transformers>=2.2.0",
+]
+openai = [
+    "openai>=1.0.0",
+]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+]
+all = [
+    "doc-drift-detector[embeddings,openai,dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/tommieseals/doc-drift-detector"
+Repository = "https://github.com/tommieseals/doc-drift-detector"
+Documentation = "https://github.com/tommieseals/doc-drift-detector#readme"
+Issues = "https://github.com/tommieseals/doc-drift-detector/issues"
+
+[project.scripts]
+doc-drift = "src.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
